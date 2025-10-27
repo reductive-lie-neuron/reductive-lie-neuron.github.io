@@ -5,16 +5,20 @@
   <meta content="Reductive Lie Neurons (ReLNs): A novel neural network architecture exactly equivariant to general linear symmetries." name="description" />
   <meta content="Equivariant Neural Networks for General Linear Symmetries on Lie Algebras" property="og:title" />
   <meta content="Reductive Lie Neurons (ReLNs): A novel neural network architecture exactly equivariant to general linear symmetries." property="og:description" />
-  <meta content="https://reductive-lie-neuron.github.io/static/images/teaser.png" property="og:image" /> <meta content="Equivariant Neural Networks for General Linear Symmetries on Lie Algebras" property="twitter:title" />
+  <meta content="https://reductive-lie-neuron.github.io/static/images/qualitative_results.png" property="og:image" />
+  <meta content="Equivariant Neural Networks for General Linear Symmetries on Lie Algebras" property="twitter:title" />
   <meta content="Reductive Lie Neurons (ReLNs): A novel neural network architecture exactly equivariant to general linear symmetries." property="twitter:description" />
-  <meta content="https://reductive-lie-neuron.github.io/static/images/teaser.png" property="twitter:image" /> <meta property="og:type" content="website" />
+  <meta content="https://reductive-lie-neuron.github.io/static/images/qualitative_results.png" property="twitter:image" />
+  <meta property="og:type" content="website" />
   <meta content="summary_large_image" name="twitter:card" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-  <title>Reductive Lie Neurons</title>
+  <title>Reductive Lie Neurons (ReLNs)</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="style.css" rel="stylesheet" type="text/css" />
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script src="script.js" type="text/javascript"></script>
 
@@ -23,20 +27,22 @@
 <body>
   <div class="section">
     <div class="container">
+      
       <div class="title-row">
-        <h1 class="title">Equivariant Neural Networks for General Linear Symmetries on Lie Algebras</h1>
+        <h1 class="title" style="font-size: 2.8rem;">Equivariant Neural Networks for General Linear Symmetries on Lie Algebras</h1>
         <h1 class="subheader">ICLR 2025 (Under Review)</h1>
       </div>
-      <div class="base-row author-row">
-        <div class="base-col author-col"><a class="author-text">Chankyo Kim¹*</a></div>
-        <div class="base-col author-col"><a class="author-text">Sicheng Zhao*</a></div>
-        <div class="base-col author-col"><a class="author-text">Minghan Zhu¹²</a></div>
-        <div class="base-col author-col"><a class="author-text">Tzu-Yuan Lin³</a></div>
-        <div class="base-col author-col"><a class="author-text">Maani Ghaffari¹</a></div>
+
+      <div class="base-row author-row" style="padding-bottom: 8px;">
+        <div class="base-col author-col"><a class="author-text" style="font-weight: bold; font-size: 1.2rem;">Chankyo Kim¹*</a></div>
+        <div class="base-col author-col"><a class="author-text" style="font-weight: bold; font-size: 1.2rem;">Sicheng Zhao¹*</a></div>
+        <div class="base-col author-col"><a class="author-text" style="font-weight: bold; font-size: 1.2rem;">Minghan Zhu¹²</a></div>
+        <div class="base-col author-col"><a class="author-text" style="font-weight: bold; font-size: 1.2rem;">Tzu-Yuan Lin³</a></div>
+        <div class="base-col author-col"><a class="author-text" style="font-weight: bold; font-size: 1.2rem;">Maani Ghaffari¹</a></div>
       </div>
       <div class="affiliation-row">
-        <h1 id="affiliations">¹University of Michigan, ²University of Pennsylvania, ³Massachusetts Institute of Technology</h1>
-        <h1 id="affiliations">*Equal contribution</h1>
+        <h1 id="affiliations" style="font-size: 1.1rem; font-weight: normal;">¹University of Michigan, ²University of Pennsylvania, ³Massachusetts Institute of Technology</h1>
+        <h1 id="affiliations" style="font-size: 1rem; font-weight: normal; padding-top: 4px;">*Equal contribution</h1>
       </div>
 
       <div class="link-labels base-row">
@@ -52,44 +58,107 @@
         </div>
       </div>
 
-      <video id="main-video" muted autoplay controls playsinline loop>
-        <source id="mp4" src="static/videos/drone_teaser.gif" type="video/mp4"> </video>
-
       <h2 class="section-header">Abstract</h2>
       <div class="paragraph">
         <p>
-          Encoding symmetries is a powerful inductive bias for improving the generalization of deep neural networks. However, most existing equivariant models are limited to simple symmetries like rotations, failing to address the broader class of general linear transformations, GL(n), that appear in many scientific domains. We introduce Reductive Lie Neurons (ReLNs), a novel neural network architecture exactly equivariant to these general linear symmetries... (전체 초록 내용 붙여넣기)
+          Encoding symmetries is a powerful inductive bias for improving the generalization of deep neural networks. However, most existing equivariant models are limited to simple symmetries like rotations, failing to address the broader class of general linear transformations, GL(n), that appear in many scientific domains. We introduce Reductive Lie Neurons (ReLNs), a novel neural network architecture exactly equivariant to these general linear symmetries. ReLNs are designed to operate directly on a wide range of structured inputs, including general n-by-n matrices. ReLNs introduce a novel adjoint-invariant bilinear layer to achieve stable equivariance for both Lie-algebraic features and matrix-valued inputs, without requiring redesign for each subgroup. This architecture overcomes the limitations of prior equivariant networks that only apply to compact groups or simple vector data. We validate ReLNs' versatility across a spectrum of tasks: they outperform existing methods on algebraic benchmarks with sl(3) and sp(4) symmetries and achieve competitive results on a Lorentz-equivariant particle physics task. In 3D drone state estimation with geometric uncertinaty, ReLNs jointly process velocities and covariances, yielding significant improvements in trajectory accuracy. ReLNs provide a practical and general framework for learning with broad linear group symmetries on Lie algebras and matrix-valued data.
         </p>
       </div>
 
-      <h2 class="section-header">Core Idea: Equivariance by Design</h2>
+      <h2 class="section-header">Main Result: Superior Trajectory Estimation</h2>
+      <div style="text-align: center; margin-top: 20px;">
+        <img src="static/images/qualitative_results.png" alt="Qualitative comparison of drone trajectory estimation" style="width: 100%; max-width: 1000px;">
+      </div>
+      <div class="paragraph" style="text-align: center; margin-top: 10px;">
+        Qualitative comparison on challenging drone trajectories. Our ReLN models (blue, orange) consistently track the ground truth (black), while baseline methods like ResNet (red, purple) and Vector Neurons (green) diverge significantly.
+      </div>
+
       <div class="paragraph">
-        <p>
-          Unlike previous methods, our work introduces a general approach to construct non-degenerate bilinear forms for any n x n matrix Lie algebra, including reductive ones like gl(n). This allows for the principled design of equivariant layers for a much broader class of symmetries.
+        <p style="margin-top: 20px;">
+          The table below shows that our ReLN models, especially the variant processing log-covariance, significantly outperform both non-equivariant and standard equivariant (Vector Neurons) baselines in the drone state estimation task.
         </p>
       </div>
-      <img src="static/images/applications.png" alt="Applications of ReLN" class="results-img"/>
-      <div class="paragraph" style="text-align: center">
-          ReLNs are applicable to a wide range of scientific domains governed by diverse Lie group symmetries.
+      <div style="overflow-x: auto;">
+        <table class="table is-bordered is-striped is-hoverable is-fullwidth" style="margin-top: 20px; margin-bottom: 20px;">
+          <thead>
+            <tr>
+              <th rowspan="2" style="vertical-align: middle;">Model</th>
+              <th colspan="3" style="text-align: center;">ID</th>
+              <th colspan="3" style="text-align: center;">SO(3)</th>
+            </tr>
+            <tr>
+              <th style="text-align: center;">ATE</th>
+              <th style="text-align: center;">ATE(%)</th>
+              <th style="text-align: center;">RPE</th>
+              <th style="text-align: center;">ATE</th>
+              <th style="text-align: center;">ATE(%)</th>
+              <th style="text-align: center;">RPE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="7"><em>Non-Equivariant Baselines</em></td></tr>
+            <tr>
+              <td>ResNet (Velocity only)</td> <td>208.07</td> <td>95.06</td> <td>107.60</td> <td>217.02</td> <td>100.39</td> <td>111.29</td>
+            </tr>
+            <tr>
+              <td>ResNet (Velocity + Covariance)</td> <td>205.11</td> <td>94.94</td> <td>106.07</td> <td>213.26</td> <td>98.90</td> <td>109.37</td>
+            </tr>
+            <tr><td colspan="7"><em>Equivariant Baselines</em></td></tr>
+            <tr>
+              <td>VN (Velocity only)</td> <td>17.36</td> <td>7.52</td> <td>13.51</td> <td>17.36</td> <td>7.52</td> <td>13.51</td>
+            </tr>
+            <tr>
+              <td>VN (Velocity + Covariance)</td> <td>191.78</td> <td>88.66</td> <td>98.39</td> <td>190.22</td> <td>88.47</td> <td>98.26</td>
+            </tr>
+            <tr><td colspan="7"><em>Our Equivariant Models</em></td></tr>
+            <tr>
+              <td>ReLN (Velocity only)</td> <td>16.85</td> <td>7.31</td> <td>12.7</td> <td>16.85</td> <td>7.31</td> <td>12.7</td>
+            </tr>
+            <tr>
+              <td>ReLN (Velocity + Covariance)</td> <td>16.49</td> <td>7.21</td> <td>13.02</td> <td>16.49</td> <td>7.21</td> <td>13.02</td>
+            </tr>
+            <tr>
+              <td><strong>ReLN (Velocity + log-Covariance)</strong></td> <td><strong>13.92</strong></td> <td><strong>5.99</strong></td> <td><strong>11.04</strong></td> <td><strong>13.92</strong></td> <td><strong>5.99</strong></td> <td><strong>11.04</strong></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       
-      <img src="static/images/equivariance_diagram.png" alt="Equivariance Diagram" class="results-img"/>
-      <div class="paragraph" style="text-align: center">
-        Our network is provably equivariant: a transformation on the input results in the same transformation on the output feature.
+      <h2 class="section-header">Core Concept: Equivariance by Design</h2>
+      <div class="paragraph">
+        <p>
+          A key contribution of our work is a unified framework that embeds diverse geometric inputs (like vectors and covariances) into a common Lie algebra, where they transform consistently under the adjoint action. Our network is designed to commute with this action, guaranteeing equivariance. To achieve this for general reductive algebras like gl(n), we introduce a non-degenerate, Ad-invariant bilinear form:
+          <br><br>
+          <code style="font-size: 1.1rem; display: block; text-align: center;">B(X, Y) = 2n * tr(XY) - tr(X)tr(Y)</code>
+          <br>
+          This form is the fundamental tool used to build our equivariant layers.
+        </p>
       </div>
-
+      <div style="text-align: center; margin-top: 20px;">
+        <img src="static/images/equivariance_diagram.png" alt="Equivariance Diagram" style="width: 70%; max-width: 650px;">
+      </div>
+      
+      <h2 class="section-header">A Unified Framework for General Symmetries</h2>
+      <div class="paragraph">
+          <p>
+              Unlike previous methods tailored for specific groups, ReLNs provide a general framework applicable to a wide range of scientific domains governed by diverse Lie group symmetries.
+          </p>
+      </div>
+      <div style="text-align: center; margin-top: 20px;">
+        <img src="static/images/taxonomy_diagram.png" alt="Taxonomy of Equivariant Architectures" style="width: 70%; max-width: 650px;">
+      </div>
+      
       <div class="citation add-top-padding">
         <h2 class="section-header"> Citation </h2>
         <p> Our paper is currently under review. If you find our work useful, please cite the ArXiv preprint (link will be available here soon). </p>
-        <pre id="codecell0">@misc{kim2024reductive,
+        <pre><code>@misc{kim2024reductive,
       title={Equivariant neural networks for general linear symmetries on Lie algebras}, 
       author={Chankyo Kim and Sicheng Zhao and Minghan Zhu and Tzu-Yuan Lin and Maani Ghaffari},
       year={2024},
       eprint={24XX.XXXXX},
       archivePrefix={arXiv},
       primaryClass={cs.LG}
-}
-</pre>
+}</code></pre>
       </div>
 
     </div>
