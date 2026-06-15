@@ -115,10 +115,10 @@
           ReLNs resolve a central stability issue for reductive Lie algebras by introducing a <b>non-degenerate adjoint
           (conjugation)-invariant bilinear form</b>, enabling principled nonlinear interactions and invariant feature
           construction in a single architecture that <i>transfers across subgroups without redesign</i>. We demonstrate
-          ReLNs on algebraic tasks with $\mathfrak{sl}(3)$ and $\mathfrak{sp}(4)$ symmetries, uncertainty-aware
-          drone state estimation via joint velocity&ndash;covariance processing,
-          learning from 3D Gaussian-splat representations, and an EMLP double-pendulum benchmark spanning multiple
-          symmetry groups. ReLNs consistently match or outperform strong equivariant and self-supervised baselines while
+          ReLNs on native $\mathrm{GL}(n)$ system identification, algebraic tasks with $\mathfrak{sl}(3)$ and
+          $\mathfrak{sp}(4)$ symmetries, uncertainty-aware drone state estimation via joint velocity&ndash;covariance
+          processing, learning from 3D Gaussian-splat representations, and an EMLP double-pendulum benchmark spanning
+          multiple symmetry groups. ReLNs consistently match or outperform strong equivariant and self-supervised baselines while
           using <b>substantially fewer parameters and compute</b>, providing a practical, reusable backbone for learning
           with broad linear symmetries.
         </p>
@@ -191,6 +191,10 @@
       <!-- headline stats -->
       <div class="stat-row">
         <div class="stat-card">
+          <div class="stat-num">127&times;</div>
+          <div class="stat-label">lower trace-recovery error than Lie Neurons on native $\mathrm{GL}(n)$ system ID</div>
+        </div>
+        <div class="stat-card">
           <div class="stat-num">Stable</div>
           <div class="stat-label">accuracy on 3D Gaussian splats under arbitrary rotations</div>
         </div>
@@ -202,6 +206,54 @@
           <div class="stat-num">27.8&times;</div>
           <div class="stat-label">faster inference than EMLP on Hamiltonian dynamics</div>
         </div>
+      </div>
+
+      <!-- ===== Native GL(n) System Identification ===== -->
+      <div class="exp-block">
+        <span class="exp-tag">Dynamical Systems</span>
+        <h3 class="exp-title">Native $\mathrm{GL}(n)$ System Identification</h3>
+        <p class="prose">
+          The one task whose symmetry is genuinely the <b>full general linear group</b>. We recover an unknown linear
+          dynamics matrix $A\in\mathfrak{gl}(3)$ of a system $z_{t+1}=Az_t$ from noisy windowed least-squares estimates.
+          Under a latent basis change $z\mapsto Sz$ with $S\in\mathrm{GL}(3)$, both inputs and target transform by
+          similarity $A\mapsto SAS^{-1}$ &mdash; the adjoint action on $\mathfrak{gl}(3)$. Crucially, $\mathrm{Tr}(A)$
+          governs global expansion/contraction and lives in the <b>center</b>, so recovering $A$ needs <i>both</i> the
+          semisimple ideal and the center. Lie Neurons rely on Killing-form-only invariants that are blind to
+          $\mathrm{Tr}(A)$ by construction; ReLN's reductive completion recovers it while staying similarity-equivariant.
+        </p>
+
+        <div class="table-wrap">
+          <table class="results">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Test split</th>
+                <th>Trace MSE&nbsp;&darr;</th>
+                <th>Canonical MSE&nbsp;&darr;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="group"><td colspan="4">Baselines</td></tr>
+              <tr><td>Avg-LS</td><td>all</td><td>0.0211</td><td>0.0044</td></tr>
+              <tr><td>MLP</td><td>ID</td><td>0.0145</td><td>0.0041</td></tr>
+              <tr><td>MLP</td><td>GL</td><td>0.0489</td><td>0.1480</td></tr>
+              <tr><td>MLP</td><td>GL-Hard</td><td>1.0285</td><td class="bad">57.41</td></tr>
+              <tr><td>Lie Neurons</td><td>all</td><td class="bad">1.6850</td><td>0.0658</td></tr>
+
+              <tr class="group"><td colspan="4">Reductive Lie Neurons (Ours)</td></tr>
+              <tr class="best"><td><strong>ReLN</strong></td><td><strong>all</strong></td>
+                <td><strong>0.0133</strong></td><td><strong>0.0039</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="caption" style="margin-top: 12px;">
+          Mean over 3 seeds. <b>Trace MSE</b> measures center recovery; <b>Canonical MSE</b> measures intrinsic,
+          similarity-invariant error. Equivariant methods (Avg-LS, Lie Neurons, ReLN) report a single value because they
+          are exactly similarity-equivariant; the non-equivariant MLP is shown across <i>ID</i> (training basis),
+          <i>GL</i> (random $S$), and <i>GL-Hard</i> (ill-conditioned $S$), and collapses under unseen basis changes.
+          Lie Neurons is stable in Canonical MSE but its Trace MSE is two orders of magnitude worse than ReLN
+          ($1.685$ vs. $0.013$). ReLN attains the lowest error on both metrics simultaneously.
+        </p>
       </div>
 
       <!-- ===== Drone ===== -->
